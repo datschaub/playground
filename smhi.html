@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>Playground</title>
+	<title>SMHI API</title>
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -30,24 +30,61 @@
 	<div class="container">
 
 		<div class="jumbotron col-md-12">
-			<h1>Playground Index</h1>
-			Den här applikationen är tänkt att agera lekplats för individuella läroändamål inom bland annat HTML, CSS (Bootstrap, LESS), JavaScript (jQuery, Angular) samt REST API'er
+			<h1>SMHI API</h1>
+			Den här applikationen är tänkt att agera lekplats för individuella läroändamål inom bland annat HTML, CSS (främst Bootstrap), JavaScript (inkl. jQuery) samt REST API'er
 		</div>
 
 		<div class="col-md-12">
 		
 			<ul class="menu-bar">
-				<li><a class="active" href="#">Index</a></li>
-				<li><a href="smhi.html">SMHI API</a></li>
+				<li><a href="index.html">Index</a></li>
+				<li><a class="active" href="#">SMHI API</a></li>
 				<li><a href="#">TBA</a></li>
 				<li><a href="#">TBA</a></li>
 				<li><a href="#">TBA</a></li>
 			</ul>
 
 		</div>
-		
+
+		<div class="content col-md-12">
+			<p>
+			<h3>Temperatur senaste dygnet i 
+
+			<select name="station" id="station">
+				<option value="Lund">Lund</option>
+				<option value="Stockholm">Stockholm</option>
+				<option value="Örebro A">Örebro</option>
+			</select>
+
+			</h3>
+			<br>
+			<button class="btnGetWeather" onclick="getWeather()">Hämta</button>
+			<br>
+			<span id="tempSpan"></span>
+			</p>
+		</div>
+
+		<table class="table table-striped col-md-12">
+			<thead>
+				<tr>
+					<th>Plats</th>
+					<th>Tidsperiod</th>
+					<th>Temperatur</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="station col-md-4"> </td>
+					<td class="period col-md-4"> </td>
+					<td class="temperature col-md-4"> </td>
+				</tr>
+			</tbody>
+		</table>
 
 	</div>
+
+
+
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

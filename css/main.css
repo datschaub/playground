@@ -24,6 +24,50 @@ thead {
 	border-bottom: 3px solid #83A136;
 }
 
+/* MENU BAR */
+
+ul.menu-bar {
+	display: table;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    background-color: #85c3fe;
+    margin-top: -30px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-bottom: 20px;
+}
+
+ul.menu-bar li {
+    float: left;
+    border-right: 1px solid #b9e6f7;
+}
+
+ul.menu-bar li:last-child {
+    border-right: none;
+}
+
+ul.menu-bar li a {
+    display: block;
+    color: black;
+    text-align: center;
+    font-size: 18px;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.menu-bar li a:hover:not(.active) {
+    background-color: #b9e6f7;
+}
+
+ul.menu-bar li a.active {
+	font-weight: bold;
+    background-color: #b9e6f7;
+}
+
+/* CONTENT */
+
 .jumbotron{
 	margin-top: 20px;
 	background-color: #b9e6f7; /*Light blue*/
