@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	$(".btnGetWeather").click(function getWeather(){
+	$("#weatherBtn").click(function getWeather(){
 
 		var station = document.getElementById('station');
 		var station_id = station.options[station.selectedIndex].value;
@@ -29,7 +29,7 @@ $(document).ready(function(){
 						var list = "";
 						console.log("Temperatur senaste dygnet i ", station, temperature);
 
-						/* APPEND NEW ROW */
+						// APPEND NEW ROW
 						$("#weatherTable").each(function(){
 							var td = "<tr>";
 
@@ -54,7 +54,8 @@ $(document).ready(function(){
 								}
 							})
 
-							$(".warmest").html(warmest);
+							$(".warmestStation").text(warmest + " c");
+							console.log("warmest station is: ", warmest);
 							
 						});
 
