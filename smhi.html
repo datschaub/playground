@@ -35,12 +35,12 @@
 		<div class="jumbotron col-md-12">
 			<h1>SMHI API</h1>
 			<blockquote>
-			Tänkt att kunna hämta ut data från SMHI genom REST API
+				Tänkt att kunna hämta ut data från SMHI genom REST API
 			</blockquote>
 		</div>
 
 		<div class="col-md-12">
-		
+
 			<ul class="menu-bar">
 				<li><a href="index.html">Index</a></li>
 				<li><a class="active" href="#">SMHI API</a></li>
@@ -56,17 +56,18 @@
 			<h3>Temperaturdata</h3> 
 			<p>
 
-				Hämta temperatur från 
-				<select name="station" id="station">
-					<option value="Lund">Lund</option>
-					<option value="Stockholm">Stockholm</option>
-					<option value="Örebro A">Örebro</option>
-				</select>
+				<form class="form-inline">
+				<div class="form-group">
+					<label for="stationInput">Hämta temperatur från </label>
 
-				<p>
-					<button id="weatherBtn" class="btn btn-primary btn-lg">Sök <span class="glyphicon glyphicon-search"></span></button>
-				</p>
-				
+					<input type="text" class="form-control" id="stationInput" placeholder="Stad">
+
+					<button type="submit" id="weatherBtn" class="btn btn-primary btn-default"><span class="glyphicon glyphicon-search"></span></button>
+				</div>
+				</form>
+
+
+
 			</p>
 		</div>
 
@@ -111,15 +112,15 @@
 
 	<div class="footer">
 		<div class="container">
-		<p class="text-muted">
-		Footer
-		</p>
+			<p class="text-muted">
+				Footer
+			</p>
 		</div>
 	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.min.js"></script>
+
 </body>
 </html>

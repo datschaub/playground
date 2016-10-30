@@ -1,12 +1,14 @@
 $(document).ready(function(){
 
-	$("#weatherBtn").click(function getWeather(){
+	$("#weatherBtn").click(function getWeather(event){
+		event.preventDefault();
 
-		var station = document.getElementById('station');
-		var station_id = station.options[station.selectedIndex].value;
+		var station = document.getElementById('stationInput');
+		var station_id = station.value;
 		console.log(station_id);
 		$.ajax({
 			type: 'GET',
+			dataType: 'json',
 			url: "http://opendata-download-metobs.smhi.se/api/version/1.0/parameter/2.json",
 			success: function(data) {
 
@@ -16,7 +18,7 @@ $(document).ready(function(){
 						console.log(station_id);
 					}
 
-				})
+				});
 
 				$.ajax({
 					type: 'GET',
@@ -25,8 +27,7 @@ $(document).ready(function(){
 					success: function(data) {
 						var station = data.station.name;
 						var period = data.period.summary;
-						var temperature = data.value[0].value;
-						var list = "";
+						var temperature = data.value[0].value;	
 						console.log("Temperatur senaste dygnet i ", station, temperature);
 
 						// APPEND NEW ROW
@@ -60,8 +61,14 @@ $(document).ready(function(){
 						});
 
 						$("#tempSpan").html(temperature+"c");
+					},
+					error: function(exception){
+						console.log('exception call #2: '+exception);
 					}
 				});
+			},
+			error: function(exception){
+				console.log('exception call #1: '+exception);
 			}
 		})
 
