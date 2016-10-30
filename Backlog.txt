@@ -1,0 +1,14 @@
+General
+* Ändra aktiv nod i menyn mha jQuery (toggleClass?)
+* Font Awesome
+* Bootstrap navigering! http://v4-alpha.getbootstrap.com/components/navbar/
+* Footer (bootstrap?)
+
+SMHI
+* Fritextsök istället för dropdown (bootstrap ruta + knapp)
+* Ändra "Varmast" till stad
+* Lägga till olika alternativ för tidsperiod (ändra sammanfattningsraden till passande logik)
+* Ändra så att den nya raden kommer längst ner (lägga till #nr?)
+
+Systembolaget API
+* Parsa XML
