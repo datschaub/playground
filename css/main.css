@@ -18,11 +18,7 @@ h1 {
 	font-weight: bold;
 }
 
-thead {
-	font-size: 18px;
-	background-color: #dcec94;
-	border-bottom: 3px solid #83A136;
-}
+
 
 /* MENU BAR */
 
@@ -75,7 +71,7 @@ ul.menu-bar li a.active {
 
 .content{
 	background-color: #dcec94;
-	padding: 30px 0px 15px 0px;
+
 	text-align: center;
 	margin-bottom: 20px;
 	border-top: 1px darkgreen solid;
@@ -113,5 +109,9 @@ ul.menu-bar li a.active {
 }
 
 #tempSpan {
+	font-weight: bold;
+}
+
+.lastRow{
 	font-weight: bold;
 }

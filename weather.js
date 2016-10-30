@@ -29,9 +29,34 @@ $(document).ready(function(){
 						var list = "";
 						console.log("Temperatur senaste dygnet i ", station, temperature);
 
-						$(".station").html(station);
-						$(".period").html(period);
-						$(".temperature").html(temperature);
+						/* APPEND NEW ROW */
+						$("#weatherTable").each(function(){
+							var td = "<tr>";
+
+							td += '<td class="station col-md-4">' + station + "</td>";
+							td += '<td class="period col-md-4">' + period + "</td>";
+							td += '<td class="temperature col-md-4">' + temperature + "</td>";
+
+							td += "</tr>";
+							
+							if($('tbody', this).length > 0){
+								$('tbody', this).prepend(td);
+							} else{
+								$(this).prepend(td);
+							}
+
+							var warmest = 0;
+							var warmestStation = "";
+
+							$(".temperature").each(function(){
+								if(parseFloat(this.innerHTML) > warmest){
+									warmest = parseFloat(this.innerHTML);
+								}
+							})
+
+							$(".warmest").html(warmest);
+							
+						});
 
 						$("#tempSpan").html(temperature+"c");
 					}
