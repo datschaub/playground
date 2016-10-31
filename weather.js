@@ -32,6 +32,8 @@ $(document).ready(function(){
 
 						// APPEND NEW ROW
 						$("#weatherTable").each(function(){
+
+							// Build table row
 							var td = "<tr>";
 
 							td += '<td class="station col-md-4">' + station + "</td>";
@@ -40,33 +42,40 @@ $(document).ready(function(){
 
 							td += "</tr>";
 							
-							if($('tbody', this).length > 0){
-								$('tbody', this).prepend(td);
+							// Check if table is empty or not
+							if($('tbody tr', this).length > 0){
+
+								// Look for incoming station (to avoid duplicates)
+								var stationExists = $('#weatherTable tr > td:contains('+ station + ')').length;
+
+								if(stationExists > 0){
+									return;
+								} else{
+									$('tbody', this).append(td);
+								}
+								
 							} else{
-								$(this).prepend(td);
+								$('tbody', this).append(td);
 							}
-
 							
-
-
-
 						});
 
 						var warmest = 0;
 						var coldest = Number.MAX_SAFE_INTEGER;
 						var warmestStation, coldestStation = "";
-						
-						// Set warmest
+
+						// Set puffs
 						$(".temperature").each(function(){
+
+							// Warmest
 							if(parseFloat(this.innerHTML) > warmest){
 								warmest = parseFloat(this.innerHTML);
 							}
-							
 
+							// Coldest
 							if(parseFloat(this.innerHTML) < coldest){
 								coldest = parseFloat(this.innerHTML);
 							}
-
 
 						});
 
@@ -84,9 +93,6 @@ $(document).ready(function(){
 				console.log('exception call #1: '+exception);
 			}
 		})
-
-
-
 	});
 });
 
