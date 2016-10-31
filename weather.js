@@ -3,6 +3,8 @@ $(document).ready(function(){
 	$("#weatherBtn").click(function getWeather(event){
 		event.preventDefault();
 
+		$('.searchResponse').text(' ');
+
 		var station = document.getElementById('stationInput');
 		var station_id = station.value;
 		console.log(station_id);
@@ -85,6 +87,8 @@ $(document).ready(function(){
 						$("#tempSpan").html(temperature+"c");
 					},
 					error: function(exception){
+						$('.searchResponse').addClass('text-danger');
+						$('.searchResponse').html('Kunde inte hitta ' + station.value + ' <i class="fa fa-chain-broken">');
 						console.log('exception call #2: '+exception);
 					}
 				});
