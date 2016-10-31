@@ -66,48 +66,13 @@ ul.menu-bar li a.active {
 
 /* CONTENT */
 
+.well{
+	text-align: center;
+}
+
 .jumbotron{
 	margin-top: 20px;
 	background-color: #b9e6f7; /*Light blue*/
-}
-
-.content{
-	background-color: #b9e6f7;
-
-	text-align: center;
-	margin-bottom: 20px;
-	border-top: 1px darkgreen solid;
-	border-bottom: 1px darkgreen solid;
-	border-radius: 10px;
-	border-color: green;
-}
-
-.btnGetWeather {
-	border: 1px solid #b8d17b;
-	text-shadow: 0px 0px black;
-	font-size: 18px;
-	color: black;
-	background-color: #eaf4be;
-	margin: 10px;
-	text-decoration: none;
-	display: inline-block;
-	padding: 5px 15px 5px 15px;
-	border-radius: 5px;
-	box-shadow: 1px 1px 1px black;
-
-
-}
-
-.btnGetWeather:hover {
-	background-color: #e3f0a8;
-}
-
-.btnGetWeather:focus {
-	outline: none;
-}
-
-.btnGetWeather:active {
-	box-shadow: 1px 1px 0px #404040;
 }
 
 #tempSpan {

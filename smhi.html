@@ -32,6 +32,20 @@
 
 	<div class="container">
 
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"><i class="fa fa-globe"></i></a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="index.html">Index</a></li>
+				<li class="active"><a href="#">SMHI</a></li>
+				<li><a href="#">TBA</a></li>
+				<li><a href="#">TBA</a></li>
+			</ul>
+			</div>
+		</nav>
+
 		<div class="jumbotron col-md-12">
 			<h1>SMHI API</h1>
 			<blockquote>
@@ -39,34 +53,22 @@
 			</blockquote>
 		</div>
 
-		<div class="col-md-12">
-
-			<ul class="menu-bar">
-				<li><a href="index.html">Index</a></li>
-				<li><a class="active" href="#">SMHI API</a></li>
-				<li><a href="#">TBA</a></li>
-				<li><a href="#">TBA</a></li>
-				<li><a href="#">TBA</a></li>
-			</ul>
-
-		</div>
-
-		<div class="content col-md-12">
+		<div class="well col-md-12">
 			
 			<h3>Temperaturdata</h3> 
 			<p>
 
 				<form class="form-inline">
+
 				<div class="form-group">
 					<label for="stationInput">Hämta temperatur från </label>
 
 					<input type="text" class="form-control" id="stationInput" placeholder="Stad">
 
 					<button type="submit" id="weatherBtn" class="btn btn-primary btn-default"><span class="glyphicon glyphicon-search"></span></button>
+
 				</div>
 				</form>
-
-
 
 			</p>
 		</div>
