@@ -46,19 +46,32 @@ $(document).ready(function(){
 								$(this).prepend(td);
 							}
 
-							var warmest = 0;
-							var warmestStation = "";
-
-							$(".temperature").each(function(){
-								if(parseFloat(this.innerHTML) > warmest){
-									warmest = parseFloat(this.innerHTML);
-								}
-							})
-
-							$(".warmestStation").text(warmest + " c");
-							console.log("warmest station is: ", warmest);
 							
+
+
+
 						});
+
+						var warmest = 0;
+						var coldest = Number.MAX_SAFE_INTEGER;
+						var warmestStation, coldestStation = "";
+						
+						// Set warmest
+						$(".temperature").each(function(){
+							if(parseFloat(this.innerHTML) > warmest){
+								warmest = parseFloat(this.innerHTML);
+							}
+							
+
+							if(parseFloat(this.innerHTML) < coldest){
+								coldest = parseFloat(this.innerHTML);
+							}
+
+
+						});
+
+						$(".warmestStation").text(warmest + " c");
+						$(".coldestStation").text(coldest + " c");
 
 						$("#tempSpan").html(temperature+"c");
 					},
