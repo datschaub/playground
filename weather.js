@@ -1,5 +1,14 @@
 $(document).ready(function(){
 
+	function closeAlert(){
+		$(".alert .close").on("click", function closeAlert(e){
+			$(this).parent().hide();
+			$('.searchResponse').removeClass('alert-danger');
+			$('.searchResponse').removeClass('alert-warning');
+		})
+	}
+	
+
 	$("#weatherBtn").click(function getWeather(event){
 		event.preventDefault();
 
@@ -48,12 +57,25 @@ $(document).ready(function(){
 							if($('tbody tr', this).length > 0){
 
 								// Look for incoming station (to avoid duplicates)
-								var stationExists = $('#weatherTable tr > td:contains('+ station + ')').length;
+								var stationExists = $('#weatherTable tr > td:contains('+ station + ')');
 
-								if(stationExists > 0){
-									return;
+								// If station already exists in table
+								if(stationExists.length > 0){
+
+									// Add warning label
+									$('.searchResponse').show();
+									$('.searchResponse').addClass('alert-warning').removeClass('alert-danger');
+									$('.searchResponse').html('<strong>' + station + '</strong> finns redan ');
+									$('.searchResponse').append('<button type="submit" id="closeAlert" class="btn btn-warning btn-xs close"><span class="glyphicon glyphicon-remove"></span></button>');
+									closeAlert();
 								} else{
+
+									// Append row
 									$('tbody', this).append(td);
+
+									// Clear alert
+									$('.searchResponse').removeClass('alert-danger');
+									$('.searchResponse').removeClass('alert-warning');
 								}
 								
 							} else{
@@ -87,14 +109,19 @@ $(document).ready(function(){
 						$("#tempSpan").html(temperature+"c");
 					},
 					error: function(exception){
-						$('.searchResponse').addClass('text-danger');
-						$('.searchResponse').html('Kunde inte hitta ' + station.value + ' <i class="fa fa-chain-broken">');
-						console.log('exception call #2: '+exception);
+
+						// Error message
+						$('.searchResponse').show();
+						$('.searchResponse').addClass('alert-danger').removeClass('alert-warning');
+						$('.searchResponse').html('Kunde inte hitta <strong> ' + station.value + ' </strong>');
+						$('.searchResponse').append('<button type="submit" id="closeAlert" class="btn btn-danger btn-xs	close"><span class="glyphicon glyphicon-remove"></span></button>');
+						closeAlert();
+						console.log('exception call #2: '+ exception);
 					}
 				});
 			},
 			error: function(exception){
-				console.log('exception call #1: '+exception);
+				console.log('exception call #1: '+ exception);
 			}
 		})
 	});

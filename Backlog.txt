@@ -1,14 +1,12 @@
 General
 * Ändra aktiv nod i menyn mha jQuery (toggleClass?)
-* Bootstrap navigering! http://v4-alpha.getbootstrap.com/components/navbar/
+* Refaktorering
 
 SMHI
-* Fritextsök istället för dropdown (bootstrap ruta + knapp)
 	* Fixa söklogik (T.ex. Örebro/Örebro A)
-	* LÄgg till felmeddelande
+	* LÄgg till felmeddelande/varning för Station finns redan
 * Ändra "Varmast" till stad
 * Lägga till olika alternativ för tidsperiod (ändra sammanfattningsraden till passande logik)
-* Inga dubletter av sökningar(?)
 * Ta bort rad med ett kryss
 
 Systembolaget API

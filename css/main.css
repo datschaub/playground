@@ -70,6 +70,10 @@ ul.menu-bar li a.active {
 	text-align: center;
 }
 
+.center-block{
+	float: none;
+}
+
 .jumbotron{
 	margin-top: 20px;
 	background-color: #b9e6f7; /*Light blue*/
