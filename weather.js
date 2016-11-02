@@ -1,15 +1,6 @@
 $(document).ready(function(){
 
-	function closeAlert(){
-		$(".alert .close").on("click", function closeAlert(e){
-			$(this).fadeOut(500, function(){
-				$(this).parent().hide();
-				$('.searchResponse').removeClass('alert-danger');
-				$('.searchResponse').removeClass('alert-warning');
-			});
-		})
-	}
-
+	// Event handler for clicking the search weather button
 	$("#weatherBtn").click(function getWeather(event){
 		event.preventDefault();
 
@@ -64,31 +55,20 @@ $(document).ready(function(){
 								if(stationExists.length > 0){
 
 									// Add warning label
-									$('.searchResponse').fadeIn(500, function(){
-										$('.searchResponse').show();
-									});
-									$('.searchResponse').addClass('alert-warning').removeClass('alert-danger');
-									$('.searchResponse').html('<strong>' + station + '</strong> finns redan ');
-									$('.searchResponse').append('<button type="submit" id="closeAlert" class="btn btn-warning btn-xs close"><span class="glyphicon glyphicon-remove"></span></button>');
-									closeAlert();
+									addLabelToWeatherSearch("warning");
 								} else{
 
 									// Append row
 									$('tbody', this).append(td);
 
-									// Clear alert
-									$('.searchResponse').hide();
-									$('.searchResponse').removeClass('alert-danger');
-									$('.searchResponse').removeClass('alert-warning');
+									clearAlert();
 								}
 								
 							} else{
+								// Append row
 								$('tbody', this).append(td);
 
-								// Clear alert
-								$('.searchResponse').hide();
-								$('.searchResponse').removeClass('alert-danger');
-								$('.searchResponse').removeClass('alert-warning');
+								clearAlert();
 							}
 							
 						});
@@ -120,14 +100,7 @@ $(document).ready(function(){
 					error: function(exception){
 
 						// Error message
-						
-						$('.searchResponse').fadeIn(500, function(){
-							$('.searchResponse').show();
-						});
-						$('.searchResponse').addClass('alert-danger').removeClass('alert-warning');
-						$('.searchResponse').html('Kunde inte hitta <strong> ' + station.value + ' </strong>');
-						$('.searchResponse').append('<button type="submit" id="closeAlert" class="btn btn-danger btn-xs	close"><span class="glyphicon glyphicon-remove"></span></button>');
-						closeAlert();
+						addLabelToWeatherSearch("danger");
 						console.log('exception call #2: '+ exception);
 					}
 				});
@@ -136,6 +109,52 @@ $(document).ready(function(){
 				console.log('exception call #1: '+ exception);
 			}
 		})
+
+		// Function that makes it easier to add an alert message
+		function addLabelToWeatherSearch(alertType){
+		
+		$('.searchResponse').fadeIn(500, function(){
+			$('.searchResponse').show();
+		});
+
+		var classToRemove;
+		
+		// "Switch" statement for warning/error message
+		if(alertType === "warning"){
+			classToRemove = "danger";
+			$('.searchResponse').html('<strong>' + station.value + '</strong> finns redan ');
+		} else {
+			classToRemove = "warning";
+			$('.searchResponse').html('Kunde inte hitta <strong> ' + station.value + ' </strong>');
+		} 
+
+		$('.searchResponse').addClass('alert-' + alertType).removeClass('alert-' + classToRemove);
+		
+		$('.searchResponse').append('<button type="submit" id="closeAlert" class="btn btn-warning btn-xs close"><span class="glyphicon glyphicon-remove"></span></button>');
+		closeAlert();
+	}
 	});
+
+	// Function for the close button on alerts
+	function closeAlert(){
+		$(".alert .close").on("click", function closeAlert(e){
+			$(this).fadeOut(500, function(){
+				$(this).parent().hide();
+				$('.searchResponse').removeClass('alert-danger');
+				$('.searchResponse').removeClass('alert-warning');
+			});
+		})
+	}
+
+	function clearAlert(){
+
+		// Clear alert
+		$('.searchResponse').fadeOut(500, function(){
+			$('.searchResponse').hide();
+			$('.searchResponse').removeClass('alert-danger');
+			$('.searchResponse').removeClass('alert-warning');
+		});
+	}
+
 });
 
