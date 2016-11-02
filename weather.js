@@ -2,12 +2,13 @@ $(document).ready(function(){
 
 	function closeAlert(){
 		$(".alert .close").on("click", function closeAlert(e){
-			$(this).parent().hide();
-			$('.searchResponse').removeClass('alert-danger');
-			$('.searchResponse').removeClass('alert-warning');
+			$(this).fadeOut(500, function(){
+				$(this).parent().hide();
+				$('.searchResponse').removeClass('alert-danger');
+				$('.searchResponse').removeClass('alert-warning');
+			});
 		})
 	}
-	
 
 	$("#weatherBtn").click(function getWeather(event){
 		event.preventDefault();
@@ -63,7 +64,9 @@ $(document).ready(function(){
 								if(stationExists.length > 0){
 
 									// Add warning label
-									$('.searchResponse').show();
+									$('.searchResponse').fadeIn(500, function(){
+										$('.searchResponse').show();
+									});
 									$('.searchResponse').addClass('alert-warning').removeClass('alert-danger');
 									$('.searchResponse').html('<strong>' + station + '</strong> finns redan ');
 									$('.searchResponse').append('<button type="submit" id="closeAlert" class="btn btn-warning btn-xs close"><span class="glyphicon glyphicon-remove"></span></button>');
@@ -74,12 +77,18 @@ $(document).ready(function(){
 									$('tbody', this).append(td);
 
 									// Clear alert
+									$('.searchResponse').hide();
 									$('.searchResponse').removeClass('alert-danger');
 									$('.searchResponse').removeClass('alert-warning');
 								}
 								
 							} else{
 								$('tbody', this).append(td);
+
+								// Clear alert
+								$('.searchResponse').hide();
+								$('.searchResponse').removeClass('alert-danger');
+								$('.searchResponse').removeClass('alert-warning');
 							}
 							
 						});
@@ -111,7 +120,10 @@ $(document).ready(function(){
 					error: function(exception){
 
 						// Error message
-						$('.searchResponse').show();
+						
+						$('.searchResponse').fadeIn(500, function(){
+							$('.searchResponse').show();
+						});
 						$('.searchResponse').addClass('alert-danger').removeClass('alert-warning');
 						$('.searchResponse').html('Kunde inte hitta <strong> ' + station.value + ' </strong>');
 						$('.searchResponse').append('<button type="submit" id="closeAlert" class="btn btn-danger btn-xs	close"><span class="glyphicon glyphicon-remove"></span></button>');
