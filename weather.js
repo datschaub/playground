@@ -13,18 +13,37 @@ $(document).ready(function(){
 		data:
 		{
 			message: 'This is also Vue',
-			items: [
+			items: 
+			[
 				
-			]
+			],
+		},
+		methods:
+		{
+			addItem: function(){
+				this.items.push({text: 'New item!'});
+			}
 		}
 	});
 
-
-	Vue.component()
-
-	$("#vueBtn").click(function(){
-		vue2.items.push({text: 'New item!'});
-	})
+	var vue3 = new Vue({
+		el: '#vue3',
+		data:
+		{
+			message: 'Add stuff to a list',
+			input: '',
+			items: 
+			[
+				
+			],
+		},
+		methods:
+		{
+			addItem: function(){
+				this.items.push({text: this.input});
+			}
+		}
+	});
 
 	// Event handler for clicking the search weather button
 	$("#weatherBtn").click(function getWeather(event){

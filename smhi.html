@@ -149,7 +149,30 @@
 									{{ item.text }}
 								</li>
 							</ol>
-							<button type="submit" id="vueBtn" class="btn btn-primary btn-default">Add an item</button>
+							<button type="submit" @click="addItem" class="btn btn-primary btn-default">Add an item</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div id="vue3">
+
+					<div class="panel panel-primary col-md-12 center-content">
+						<div class="panel-heading row">
+							<h3>{{ message }} </h3>
+						</div>
+						<div class="panel-body row">
+							<ol>
+								<li v-for="item in items">
+									{{ item.text }}
+								</li>
+							</ol>
+							<input v-model="input">
+							<p>
+							<button type="submit" @click="addItem" class="btn btn-primary btn-default">Add an item</button>
+							</p>
 						</div>
 					</div>
 
