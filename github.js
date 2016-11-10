@@ -7,7 +7,13 @@ $(document).ready(function(){
 			dataType: 'json',
 			url: 'https://api.github.com/repos/datschaub/playground/events',
 			success: function(data){
-				console.log(data);
+
+				$.each(data, function(index){
+
+					console.log(data[index].payload.commits);
+				})
+					
+				
 			},
 			error: function(e){
 				console.log('Exception: ' + e)
@@ -15,5 +21,12 @@ $(document).ready(function(){
 		});
 
 	});
+
+	var app = new Vue({
+		el: #app,
+		data: {
+			message: 'Hello Vue!'
+		}
+	})
 
 });

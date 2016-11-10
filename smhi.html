@@ -17,6 +17,9 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+	<!-- Vue -->
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<!-- Custom JavaScript -->
@@ -34,15 +37,15 @@
 
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#"><i class="fa fa-globe"></i></a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li><a href="index.html">Index</a></li>
-				<li class="active"><a href="#">SMHI</a></li>
-				<li><a href="github.html">GitHub</a></li>
-				<li><a href="#">TBA</a></li>
-			</ul>
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#"><i class="fa fa-globe"></i></a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Index</a></li>
+					<li class="active"><a href="#">SMHI</a></li>
+					<li><a href="github.html">GitHub</a></li>
+					<li><a href="#">TBA</a></li>
+				</ul>
 			</div>
 		</nav>
 
@@ -53,21 +56,21 @@
 			</blockquote>
 		</div>
 
-		<div class="well col-md-12">
+		<div class="well center-content col-md-12">
 			
 			<h3>Temperaturdata</h3> 
 			<p>
 
 				<form class="form-inline">
 
-				<div class="form-group">
-					<label for="stationInput">Hämta temperatur från </label>
+					<div class="form-group">
+						<label for="stationInput">Hämta temperatur från </label>
 
-					<input type="text" class="form-control" id="stationInput" placeholder="Stad">
+						<input type="text" class="form-control" id="stationInput" placeholder="Stad">
 
-					<button type="submit" id="weatherBtn" class="btn btn-primary btn-default"><span class="glyphicon glyphicon-search"></span></button>
+						<button type="submit" id="weatherBtn" class="btn btn-primary btn-default"><span class="glyphicon glyphicon-search"></span></button>
 
-				</div>
+					</div>
 
 				</form>
 
@@ -94,27 +97,66 @@
 		</table>
 
 		<!-- PUFFS -->
-		<div class="col-md-4 puff">
-			<h3 class="text-danger">Varmast</h3>
-			<i class="fa fa-sun-o fa-2x"></i>
-			<p>
-				<span class="warmestStation text-danger"></span>
-			</p>
+		<div class="container">
+			<div class="col-md-4 puff">
+				<h3 class="text-danger">Varmast</h3>
+				<i class="fa fa-sun-o fa-2x"></i>
+				<p>
+					<span class="warmestStation text-danger"></span>
+				</p>
+			</div>
+
+			<div class="col-md-4 puff">
+				<h3 class="text-primary">Kallast</h3>
+				<i class="fa fa-thermometer-empty fa-2x"></i>
+				<p>
+					<span class="coldestStation text-primary"></span>
+				</p>
+			</div>
+
+			<div class="col-md-4 puff">
+				<h3 class="text-muted">Nånting annat</h3>
+				<i class="fa fa-cog fa-2x"></i>
+				<span class="text-muted"></span>
+			</div>
+
 		</div>
 
-		<div class="col-md-4 puff">
-			<h3 class="text-primary">Kallast</h3>
-			<i class="fa fa-thermometer-empty fa-2x"></i>
-			<p>
-				<span class="coldestStation text-primary"></span>
-			</p>
-		</div>
+		<div class="col-md-12">
+			<div class="row">
+				<div id="vue1">
 
-		<div class="col-md-4 puff">
-			<h3 class="text-muted">Nånting annat</h3>
-			<i class="fa fa-cog fa-2x"></i>
-			<span class="text-muted"></span>
-		</div>
+					<div class="panel panel-primary col-md-5 center-content">
+						<div class="panel-heading row">
+							<h3> {{ message }} </h3>
+						</div>
+						<div class="panel-body row">
+							<input v-model="message">
+						</div>
+					</div>
+
+				</div>
+
+				<div id="vue2">
+
+					<div class="panel panel-primary col-md-5 col-md-offset-2 center-content">
+						<div class="panel-heading row">
+							<h3>{{ message }} </h3>
+						</div>
+						<div class="panel-body row">
+							<ol>
+								<li v-for="item in items">
+									{{ item.text }}
+								</li>
+							</ol>
+							<button type="submit" id="vueBtn" class="btn btn-primary btn-default">Add an item</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>	
 
 	</div>
 

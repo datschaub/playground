@@ -1,5 +1,31 @@
 $(document).ready(function(){
 
+	var vue1 = new Vue({
+		el: '#vue1',
+		data:
+		{
+			message: 'This is Vue'
+		}
+	});
+
+	var vue2 = new Vue({
+		el: '#vue2',
+		data:
+		{
+			message: 'This is also Vue',
+			items: [
+				
+			]
+		}
+	});
+
+
+	Vue.component()
+
+	$("#vueBtn").click(function(){
+		vue2.items.push({text: 'New item!'});
+	})
+
 	// Event handler for clicking the search weather button
 	$("#weatherBtn").click(function getWeather(event){
 		event.preventDefault();
