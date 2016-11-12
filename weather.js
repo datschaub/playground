@@ -41,6 +41,7 @@ $(document).ready(function(){
 		{
 			addItem: function(){
 				this.items.push({text: this.input});
+				this.input = '';
 			}
 		}
 	});

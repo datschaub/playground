@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>Playground</title>
+	<title>Spotify</title>
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -26,7 +26,7 @@
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<!-- Custom JavaScript -->
-	<script type="text/javascript" src="github.js"></script>
+	<script type="text/javascript" src="spotify.js"></script>
 
 
 </head>
@@ -37,28 +37,42 @@
 
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#"><i class="fa fa-globe"></i></a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li><a href="index.html">Index</a></li>
-				<li><a href="smhi.html">SMHI</a></li>
-				<li class="active"><a href="github.html">GitHub</a></li>
-				<li><a href="spotify.html">Spotify</a></li>
-			</ul>
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#"><i class="fa fa-globe"></i></a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Index</a></li>
+					<li><a href="smhi.html">SMHI</a></li>
+					<li><a href="github.html">GitHub</a></li>
+					<li class="active"><a href="#">Spotify</a></li>
+				</ul>
 			</div>
 		</nav>
 
 		<div class="jumbotron col-md-12">
-			<h1>GitHub Commits</h1>
+			<h1>Spotify</h1>
 			<blockquote>
-			Här samlas alla commits för detta projekt. Detta utförs genom att kalla på <strong>GitHubs API</strong>; renderingen sker sedan med hjälp av <strong>vue.js</strong>
+				Här används <strong>Spotifys API</strong> för att presentera metadata från olika artister, låtar och album
 			</blockquote>
 			
 		</div>
 
-		<div class="col-md-12 well">
-			<button id="getCommits" type="submit" class="btn btn-primary btn-default">Sök</button>
+		<div class="col-md-12 well center-content">
+			<div id="spotify">
+				<input v-model="artistInput">
+				<p>
+					<button id="getSpotifyDataBtn" type="submit" @click="getData" class="btn btn-primary btn-default">Get spotify data</button>
+				</p>
+
+				<h2 v-show="artistInput"> {{ artistInput }} </h2>
+
+				<ol>
+					<li v-for="artist in artist">
+						{{ artist.name }}
+					</li>
+				</ol>
+
+			</div>
 		</div>
 		
 

@@ -44,7 +44,7 @@
 					<li><a href="index.html">Index</a></li>
 					<li class="active"><a href="#">SMHI</a></li>
 					<li><a href="github.html">GitHub</a></li>
-					<li><a href="#">TBA</a></li>
+					<li><a href="spotify.html">Spotify</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -97,36 +97,38 @@
 		</table>
 
 		<!-- PUFFS -->
-		<div class="container">
-			<div class="col-md-4 puff">
-				<h3 class="text-danger">Varmast</h3>
-				<i class="fa fa-sun-o fa-2x"></i>
-				<p>
-					<span class="warmestStation text-danger"></span>
-				</p>
+
+	
+			<div class="row">
+				<div class="col-md-3 puff">
+					<h3 class="text-danger">Varmast</h3>
+					<i class="fa fa-sun-o fa-2x"></i>
+					<p>
+						<span class="warmestStation text-danger"></span>
+					</p>
+				</div>
+
+				<div class="col-md-3 col-md-offset-1 puff">
+					<h3 class="text-primary">Kallast</h3>
+					<i class="fa fa-thermometer-empty fa-2x"></i>
+					<p>
+						<span class="coldestStation text-primary"></span>
+					</p>
+				</div>
+
+				<div class="col-md-3 col-md-offset-1 puff">
+					<h3 class="text-muted">Nånting annat</h3>
+					<i class="fa fa-cog fa-2x"></i>
+					<span class="text-muted"></span>
+				</div>
+
 			</div>
-
-			<div class="col-md-4 puff">
-				<h3 class="text-primary">Kallast</h3>
-				<i class="fa fa-thermometer-empty fa-2x"></i>
-				<p>
-					<span class="coldestStation text-primary"></span>
-				</p>
-			</div>
-
-			<div class="col-md-4 puff">
-				<h3 class="text-muted">Nånting annat</h3>
-				<i class="fa fa-cog fa-2x"></i>
-				<span class="text-muted"></span>
-			</div>
-
-		</div>
-
+		
 		<div class="col-md-12">
 			<div class="row">
 				<div id="vue1">
 
-					<div class="panel panel-primary col-md-5 center-content">
+					<div class="panel panel-primary col-md-4 center-content">
 						<div class="panel-heading row">
 							<h3> {{ message }} </h3>
 						</div>
@@ -139,7 +141,7 @@
 
 				<div id="vue2">
 
-					<div class="panel panel-primary col-md-5 col-md-offset-2 center-content">
+					<div class="panel panel-primary col-md-4 col-md-offset-4 center-content">
 						<div class="panel-heading row">
 							<h3>{{ message }} </h3>
 						</div>
@@ -171,7 +173,7 @@
 							</ol>
 							<input v-model="input">
 							<p>
-							<button type="submit" @click="addItem" class="btn btn-primary btn-default">Add an item</button>
+								<button v-show="input" type="submit" @click="addItem" class="btn btn-primary btn-default">Add an item</button>
 							</p>
 						</div>
 					</div>
