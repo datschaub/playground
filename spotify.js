@@ -5,7 +5,7 @@ $(document).ready(function(){
 		<div class="col-md-4 artist-puff">\
 		<h3>{{ name }}</h3>\
 		<div class="artist-puff-image">\
-		<a :href="link"><img :src="image" width="100px" height="100px" class="img-circle"></a>\
+		<a :href="link"><img :src="image" width="150px" height="150px" class="img-circle"></a>\
 		</div>\
 		<div class="artist-puff-popularity">\
 		Popularity:\
