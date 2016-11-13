@@ -1,15 +1,34 @@
 $(document).ready(function(){
 
 	Vue.component('artist-puff', {
+		data: function()
+		{
+			progressbar:{
+				return{width: this.popularity+'%' };
+			}
+			
+		},
 		template: '\
 		<div class="col-md-4 artist-puff">\
 			<h3>{{ name }}</h3>\
 			<div class="artist-puff-image">\
-				<img :src="image" width="100px" height="100px" class="img-circle">\
+				<a :href="link"><img :src="image" width="100px" height="100px" class="img-circle"></a>\
+			</div>\
+			<div class="artist-puff-popularity">\
+				Popularity:\
+				<div class="progress progress-striped">\
+					<div class="progress-bar" role="progressbar" :aria-valuenow="popularity" aria-valuemin="0" aria-valuemax="100" v-bind:style="progressbar"></div>\
+				</div>\
 			</div>\
 		</div>',
-		props: ['name','image'],
-	})
+
+		props: [
+		'name',
+		'image',
+		'link',
+		'popularity'
+		]
+	});
 
 	// SPOTIFY VUE APP
 	var spotify = new Vue({
@@ -20,6 +39,12 @@ $(document).ready(function(){
 			artistInput: '',
 			// Array of search results
 			artists: [],
+		},
+		watch:
+		{
+			artistInput: function(artistInput){
+				this.getData();
+			}
 		},
 		methods:
 		{
@@ -49,7 +74,10 @@ $(document).ready(function(){
 						$.each(artistSearch, function(index){
 
 							var artist = artistSearch[index];
-							var artistName = artistSearch[index].name;
+
+							var artistName = artist.name;
+							var playLink = artist.external_urls.spotify;
+							var artistPopularity = artist.popularity;
 
 							// Check if artist has an image
 							if(artist.images.length > 0){
@@ -58,7 +86,13 @@ $(document).ready(function(){
 								artistImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png";
 							}
 
-							spotifyData.artists.push({ name: artistName, image: artistImage });
+							spotifyData.artists.push(
+								{ 
+								name: artistName,
+								image: artistImage, 
+								link: playLink,
+								popularity: artistPopularity
+							});
 						})
 
 					},

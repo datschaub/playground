@@ -107,6 +107,10 @@ ul.menu-bar li a.active {
 	padding-bottom: 20px;
 }
 
+.artist-puff-image{
+	padding-bottom: 10px;
+}
+
 .artist-puff-image img{
 	border:1px solid #d2d2d2;
 	box-shadow: 1px 1px 1px;
@@ -115,6 +119,12 @@ ul.menu-bar li a.active {
 .artist-puff-image img:hover{
 	border:1px solid #616161;
 	box-shadow: 2px 2px 2px;
+}
+
+.artist-puff-popularity{
+	width: 50%;
+	margin: auto;
+	padding-bottom: 20px;
 }
 
 /* OVERWRITE BOOTSTRAP */

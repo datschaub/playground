@@ -4,6 +4,7 @@
   "main":"test.js",
   "author":"Linus",
   "description": "For test ",
+  "private": true,
   "dependencies": {
     "bootstrap": "latest",
     "jQuery": "latest"

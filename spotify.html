@@ -59,18 +59,19 @@
 
 		<div class="col-md-12 well center-content">
 			<div id="spotify">
-				<input v-model="artistInput">
+				<input v-model="artistInput" placeholder="Artist">
 				<p>
 					<button id="getSpotifyDataBtn" type="submit" @click="getData" class="btn btn-primary btn-default">Get spotify data</button>
 				</p>
 
 				<h2>Searching for: {{ artistInput }} </h2>
 
-
+				<div class="row">
 					<template v-for="artist in artists">
-						<artist-puff :name="artist.name" :image="artist.image"></artist-puff>
+						<artist-puff v-show="artistInput" :name="artist.name" :image="artist.image" :link="artist.link" :popularity="artist.popularity">
+						</artist-puff>
 					</template>
-
+				</div>
 			</div>
 		</div>
 		
