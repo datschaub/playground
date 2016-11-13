@@ -98,6 +98,25 @@ ul.menu-bar li a.active {
 	margin-top: 20px;
 }
 
+/* SPOTIFY */
+.artist-puff{
+	padding-bottom: 20px;
+}
+
+.artist-puff h3{
+	padding-bottom: 20px;
+}
+
+.artist-puff-image img{
+	border:1px solid #d2d2d2;
+	box-shadow: 1px 1px 1px;
+}
+
+.artist-puff-image img:hover{
+	border:1px solid #616161;
+	box-shadow: 2px 2px 2px;
+}
+
 /* OVERWRITE BOOTSTRAP */
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{

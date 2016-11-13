@@ -64,13 +64,12 @@
 					<button id="getSpotifyDataBtn" type="submit" @click="getData" class="btn btn-primary btn-default">Get spotify data</button>
 				</p>
 
-				<h2 v-show="artistInput"> {{ artistInput }} </h2>
+				<h2>Searching for: {{ artistInput }} </h2>
 
-				<ol>
-					<li v-for="artist in artist">
-						{{ artist.name }}
-					</li>
-				</ol>
+
+					<template v-for="artist in artists">
+						<artist-puff :name="artist.name" :image="artist.image"></artist-puff>
+					</template>
 
 			</div>
 		</div>
