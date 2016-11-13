@@ -1,25 +1,18 @@
 $(document).ready(function(){
 
 	Vue.component('artist-puff', {
-		data: function()
-		{
-			progressbar:{
-				return{width: this.popularity+'%' };
-			}
-			
-		},
 		template: '\
 		<div class="col-md-4 artist-puff">\
-			<h3>{{ name }}</h3>\
-			<div class="artist-puff-image">\
-				<a :href="link"><img :src="image" width="100px" height="100px" class="img-circle"></a>\
-			</div>\
-			<div class="artist-puff-popularity">\
-				Popularity:\
-				<div class="progress progress-striped">\
-					<div class="progress-bar" role="progressbar" :aria-valuenow="popularity" aria-valuemin="0" aria-valuemax="100" v-bind:style="progressbar"></div>\
-				</div>\
-			</div>\
+		<h3>{{ name }}</h3>\
+		<div class="artist-puff-image">\
+		<a :href="link"><img :src="image" width="100px" height="100px" class="img-circle"></a>\
+		</div>\
+		<div class="artist-puff-popularity">\
+		Popularity:\
+		<div class="progress progress-striped">\
+		<div class="progress-bar" role="progressbar" :aria-valuenow="popularity" aria-valuemin="0" aria-valuemax="100" :style="progressbar"></div>\
+		</div>\
+		</div>\
 		</div>',
 
 		props: [
@@ -27,7 +20,14 @@ $(document).ready(function(){
 		'image',
 		'link',
 		'popularity'
-		]
+		],
+
+		computed:
+		{
+			progressbar:function(){
+				return{width:this.popularity+'%'};
+			}
+		},
 	});
 
 	// SPOTIFY VUE APP
@@ -87,7 +87,7 @@ $(document).ready(function(){
 							}
 
 							spotifyData.artists.push(
-								{ 
+							{ 
 								name: artistName,
 								image: artistImage, 
 								link: playLink,
