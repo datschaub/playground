@@ -1,0 +1,12 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "main":"test.js",
+  "author":"Linus",
+  "description": "For test ",
+  "dependencies": {
+    "bootstrap": "latest",
+    "jQuery": "latest"
+  }
+
+}

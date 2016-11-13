@@ -97,3 +97,9 @@ ul.menu-bar li a.active {
 	padding: 15px;
 	margin-top: 20px;
 }
+
+/* OVERWRITE BOOTSTRAP */
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+	font-weight: bold;
+}
