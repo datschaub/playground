@@ -103,8 +103,11 @@ ul.menu-bar li a.active {
 	padding-bottom: 20px;
 }
 
-.artist-puff h3{
+.artist-puff-header{
 	padding-bottom: 20px;
+	max-height: 70px;
+	height: 70px;
+	text-overflow: ellipsis;
 }
 
 .artist-puff-image{
@@ -114,11 +117,17 @@ ul.menu-bar li a.active {
 .artist-puff-image img{
 	border:1px solid #d2d2d2;
 	box-shadow: 1px 1px 1px;
+	transition: 0.1s;
 }
 
 .artist-puff-image img:hover{
-	border:1px solid #616161;
+	border:1px solid #b5b5b5;
 	box-shadow: 2px 2px 2px;
+}
+
+.artist-puff-image img:active{
+	border:1px solid #b5b5b5;
+	box-shadow: 1px 1px 1px;
 }
 
 .artist-puff-popularity{
@@ -127,8 +136,23 @@ ul.menu-bar li a.active {
 	padding-bottom: 20px;
 }
 
+.artist-puff-popularity-header{
+	padding-bottom: 5px;
+}
+
 /* OVERWRITE BOOTSTRAP */
+.progress {
+    position: relative;
+    background-color: #ccc;
+}
+
+.progress span {
+    position: absolute;
+    display: block;
+    width: 100%;
+ }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
 	font-weight: bold;
 }
+

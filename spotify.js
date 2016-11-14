@@ -3,14 +3,16 @@ $(document).ready(function(){
 	Vue.component('artist-puff', {
 		template: '\
 		<div class="col-md-4 artist-puff">\
-		<h3>{{ name }}</h3>\
+		<div class="artist-puff-header"><h3>{{ name }}</h3></div>\
 		<div class="artist-puff-image">\
 		<a :href="link"><img :src="image" width="150px" height="150px" class="img-circle"></a>\
 		</div>\
 		<div class="artist-puff-popularity">\
-		Popularity:\
-		<div class="progress progress-striped">\
-		<div class="progress-bar" role="progressbar" :aria-valuenow="popularity" aria-valuemin="0" aria-valuemax="100" :style="progressbar"></div>\
+		<div class="artist-puff-popularity-header">\
+		Popularity: \
+		</div>\
+		<div class="progress">\
+		<div class="progress-bar" role="progressbar" :aria-valuenow="popularity" aria-valuemin="0" aria-valuemax="100" :style="progressbar"><span>{{ popularity }}%</span></div>\
 		</div>\
 		</div>\
 		</div>',
@@ -25,7 +27,8 @@ $(document).ready(function(){
 		computed:
 		{
 			progressbar:function(){
-				return{width:this.popularity+'%'};
+				
+				return{ width: this.popularity+'%' };
 			}
 		},
 	});
@@ -43,7 +46,9 @@ $(document).ready(function(){
 		watch:
 		{
 			artistInput: function(artistInput){
-				this.getData();
+				if(artistInput.length > 0){
+					this.getData();
+				}
 			}
 		},
 		methods:
