@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Poiret+One|Roboto|Scope+One');
 
 /** COLORS 
 
@@ -112,6 +112,7 @@ ul.menu-bar li a.active {
 	max-height: 70px;
 	height: 70px;
 	text-overflow: ellipsis;
+	font-family: 'Scope One';
 }
 
 .artist-puff-image{
@@ -138,6 +139,7 @@ ul.menu-bar li a.active {
 	width: 50%;
 	margin: auto;
 	padding-bottom: 20px;
+	font-family: 'Roboto';
 }
 
 .artist-puff-popularity-header{

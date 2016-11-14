@@ -3,7 +3,7 @@ $(document).ready(function(){
 	Vue.component('artist-puff', {
 		template: '\
 		<div class="col-md-3 artist-puff">\
-		<div class="artist-puff-header"><h3>{{ name }}</h3></div>\
+		<div class="artist-puff-header"><h2>{{ name }}</h2></div>\
 		<div class="artist-puff-image">\
 		<a :href="link"><img :src="image" width="150px" height="150px" class="img-circle"></a>\
 		</div>\
@@ -44,7 +44,7 @@ $(document).ready(function(){
 			artists: [],
 			// Amount of search results
 			showAmount: 10,
-			showAmountOptions: [5, 10, 20, 50, 100]
+			showAmountOptions: [5, 10, 20, 50]
 		},
 		watch:
 		{
@@ -54,7 +54,9 @@ $(document).ready(function(){
 				}
 			},
 			showAmount: function(showAmount){
-				this.getData();
+				if(this.artistInput.length > 0){
+					this.getData();
+				}
 			}
 		},
 		methods:
