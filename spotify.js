@@ -2,17 +2,17 @@ $(document).ready(function(){
 
 	Vue.component('artist-puff', {
 		template: '\
-		<div class="col-md-4 artist-puff">\
+		<div class="col-md-3 artist-puff">\
 		<div class="artist-puff-header"><h3>{{ name }}</h3></div>\
 		<div class="artist-puff-image">\
 		<a :href="link"><img :src="image" width="150px" height="150px" class="img-circle"></a>\
 		</div>\
 		<div class="artist-puff-popularity">\
-		<div class="artist-puff-popularity-header">\
-		Popularity: \
+		<div class="artist-puff-popularity-header text-muted">\
+		Popularity <i class="fa fa-line-chart">\
 		</div>\
 		<div class="progress">\
-		<div class="progress-bar" role="progressbar" :aria-valuenow="popularity" aria-valuemin="0" aria-valuemax="100" :style="progressbar"><span>{{ popularity }}%</span></div>\
+		<div class="progress-bar" role="progressbar" :aria-valuenow="popularity" aria-valuemin="0" aria-valuemax="100" :style="progressbar"><span>{{ popularity }}</span></div>\
 		</div>\
 		</div>\
 		</div>',
@@ -26,7 +26,7 @@ $(document).ready(function(){
 
 		computed:
 		{
-			progressbar:function(){
+			progressbar: function(){
 				
 				return{ width: this.popularity+'%' };
 			}
@@ -42,6 +42,9 @@ $(document).ready(function(){
 			artistInput: '',
 			// Array of search results
 			artists: [],
+			// Amount of search results
+			showAmount: 10,
+			showAmountOptions: [5, 10, 20, 50, 100]
 		},
 		watch:
 		{
@@ -49,6 +52,9 @@ $(document).ready(function(){
 				if(artistInput.length > 0){
 					this.getData();
 				}
+			},
+			showAmount: function(showAmount){
+				this.getData();
 			}
 		},
 		methods:
@@ -65,8 +71,10 @@ $(document).ready(function(){
 					{
 						q: this.artistInput,
 						type: 'artist',
+						limit: this.showAmount
 					},
 					success: function(data){
+						console.log(data.artists);
 						console.log(data.artists.items);
 
 						// Isolated artist data

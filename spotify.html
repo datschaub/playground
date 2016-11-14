@@ -50,8 +50,8 @@
 		</nav>
 
 		<div class="jumbotron col-md-12">
-			<h1>Spotify</h1>
-			<blockquote>
+			<h1>Spotify <i class="fa fa-spotify"></i></h1>
+			<blockquote class="blockquote">
 				Här används <strong>Spotifys API</strong> för att presentera metadata från olika artister, låtar och album
 			</blockquote>
 			
@@ -59,15 +59,22 @@
 
 		<div class="col-md-12 well center-content">
 			<div id="spotify">
-				<input v-model="artistInput" placeholder="Artist">
+				<div class="row">
+					<div class="input-group artist-input col-md-4 col-md-offset-4">
+						<span class="input-group-addon" id="addon"><i class="fa fa-search"></i></span>
+						<input type="text" v-model="artistInput" class="form-control" placeholder="Artist">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-2 col-md-offset-5">
+						<label for="selectAmount">Select amount:</label>
+						<select class="form-control" id="selectAmount" v-model="showAmount">
+							<option v-for="option in showAmountOptions">{{option}}</option>
+						</select>
+					</div>
+				</div>
 
-				<!--
-				<p>
-					<button id="getSpotifyDataBtn" type="submit" @click="getData" class="btn btn-primary btn-default">Get spotify data</button>
-				</p>
-				-->
-
-				<h2>Searching for: {{ artistInput }} </h2>
+				<h2 class="lead">Search results for: {{ artistInput }} </h2>
 
 				<div class="row">
 					<template v-for="artist in artists">
@@ -77,7 +84,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 
 	</div>
 
