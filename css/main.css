@@ -111,10 +111,11 @@ ul.menu-bar li a.active {
 
 .artist-puff-header{
 	padding-bottom: 20px;
-	max-height: 70px;
-	height: 70px;
+	max-height: 100px;
+	height: 100px;
 	text-overflow: ellipsis;
 	font-family: 'Scope One';
+	overflow: hidden;
 }
 
 .artist-puff-image{

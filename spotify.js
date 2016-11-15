@@ -111,6 +111,11 @@ $(document).ready(function(){
 							// Truncate genre array
 							artistGenresArray = artistGenresArray.slice(0,3);
 
+							// Check if there are any genres
+							if(artistGenresArray.length < 1){
+								artistGenresArray = ["No genre available"];
+							}
+
 							// Check if artist has an image
 							if(artist.images.length > 0){
 								var artistImage = artistSearch[index].images[1].url;
