@@ -1,13 +1,18 @@
 {
   "name": "app",
   "version": "0.0.1",
-  "main":"test.js",
-  "author":"Linus",
+  "main": "test.js",
+  "author": "Linus",
   "description": "For test ",
   "private": true,
   "dependencies": {
     "bootstrap": "latest",
     "jQuery": "latest"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-uglify": "^2.0.0"
   }
-
 }
