@@ -78,7 +78,7 @@
 
 				<div class="row">
 					<template v-for="artist in artists">
-						<artist-puff v-show="artistInput" :name="artist.name" :image="artist.image" :link="artist.link" :popularity="artist.popularity">
+						<artist-puff v-show="artistInput" :name="artist.name" :image="artist.image" :link="artist.link" :popularity="artist.popularity" :genres="artist.genres">
 						</artist-puff>
 					</template>
 				</div>

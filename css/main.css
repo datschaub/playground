@@ -103,6 +103,8 @@ ul.menu-bar li a.active {
 	margin-bottom: 10px;
 }
 
+
+/* ARTIST PUFF */
 .artist-puff{
 	padding-bottom: 20px;
 }
@@ -138,7 +140,7 @@ ul.menu-bar li a.active {
 .artist-puff-popularity{
 	width: 50%;
 	margin: auto;
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 	font-family: 'Roboto';
 }
 
@@ -146,11 +148,33 @@ ul.menu-bar li a.active {
 	padding-bottom: 5px;
 }
 
+.artist-puff-genres{
+	text-transform: capitalize;
+	font-family: 'Roboto';
+	max-height: 100px;
+	height: 100px;
+	max-width: 200px;
+	width: 200px;
+	margin: auto;
+}
+
+.artist-puff-genres-header{
+	font-family: 'Scope One';
+	font-size: 18px;
+}
+
+.artist-puff-genres ul{
+	list-style-type: none;
+	padding: 0;
+	font-size: 14px;
+}
+
 /* OVERWRITE BOOTSTRAP */
 .progress {
     position: relative;
     background-color: #ccc;
     border: 1px solid #b9b9b9;
+    margin-bottom: 10px;
 }
 
 .progress span {

@@ -15,13 +15,25 @@ $(document).ready(function(){
 		<div class="progress-bar" role="progressbar" :aria-valuenow="popularity" aria-valuemin="0" aria-valuemax="100" :style="progressbar"><span>{{ popularity }}</span></div>\
 		</div>\
 		</div>\
+		<div class="artist-puff-genres">\
+		<div class="artist-puff-genres-header">\
+		Genres <i class="fa fa-music"></i>\
+		</div>\
+		<ul>\
+		<li class="text-muted" v-for="genre in genres">\
+		{{ genre }}\
+		</li>\
+		</ul\
+		</div>\
+		</div>\
 		</div>',
 
 		props: [
 		'name',
 		'image',
 		'link',
-		'popularity'
+		'popularity',
+		'genres'
 		],
 
 		computed:
@@ -90,9 +102,14 @@ $(document).ready(function(){
 
 							var artist = artistSearch[index];
 
+							// Variables for fetched data
 							var artistName = artist.name;
 							var playLink = artist.external_urls.spotify;
 							var artistPopularity = artist.popularity;
+							var artistGenresArray = artist.genres;
+
+							// Truncate genre array
+							artistGenresArray = artistGenresArray.slice(0,3);
 
 							// Check if artist has an image
 							if(artist.images.length > 0){
@@ -106,7 +123,8 @@ $(document).ready(function(){
 								name: artistName,
 								image: artistImage, 
 								link: playLink,
-								popularity: artistPopularity
+								popularity: artistPopularity,
+								genres: artistGenresArray
 							});
 						})
 
