@@ -1,13 +1,28 @@
 {
-  "name": "app",
+  "name": "playground",
   "version": "0.0.1",
-  "main":"test.js",
-  "author":"Linus",
+  "main": "test.js",
+  "author": "Linus",
   "description": "For test ",
   "private": true,
   "dependencies": {
     "bootstrap": "latest",
     "jQuery": "latest"
-  }
-
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-install": "^0.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datschaub/playground.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/datschaub/playground/issues"
+  },
+  "homepage": "https://github.com/datschaub/playground#readme"
 }
