@@ -10,4 +10,4 @@ SMHI
 * Ta bort rad med ett kryss
 
 Systembolaget API
-* Parsa XML
+* Parsa XML	

@@ -10,7 +10,7 @@ gulp.task('scripts', function(){
 		presets: ['es2015']
 	}))
 	.pipe(uglify())
-	.pipe(gulp.dest('minjs'));
+	.pipe(gulp.dest('js/minjs'));
 });
 
 // Watch Task
