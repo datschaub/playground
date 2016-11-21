@@ -99,8 +99,18 @@ ul.menu-bar li a.active {
 }
 
 /* SPOTIFY */
+
+.spotify-jumbotron{
+	background-color: #1ED760;
+}
+
 .artist-input{
 	margin-bottom: 10px;
+}
+
+.spotify-well{
+	background-color: #222425;
+	color: #999;
 }
 
 
@@ -129,7 +139,7 @@ ul.menu-bar li a.active {
 }
 
 .artist-puff-image img:hover{
-	border:1px solid #b5b5b5;
+	border:1px solid #e5e5e5;
 	box-shadow: 2px 2px 2px;
 }
 
@@ -173,7 +183,7 @@ ul.menu-bar li a.active {
 /* OVERWRITE BOOTSTRAP */
 .progress {
     position: relative;
-    background-color: #ccc;
+    background-color: #999;
     border: 1px solid #b9b9b9;
     margin-bottom: 10px;
 }
@@ -186,10 +196,12 @@ ul.menu-bar li a.active {
 
 .progress-bar{
 	transition: 0.2s;
+	background-color: #1ED760;
+	color: #464646;
 }
 
 .progress-bar:hover{
-	background-color: #4598e0;
+	background-color: #18ad4d;
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
