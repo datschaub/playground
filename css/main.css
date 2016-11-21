@@ -10,8 +10,9 @@
 
 **/
 
-body {
+#spotify-index {
 	font-family: 'Open Sans';
+	background-color: #999;
 }
 
 h1 {
@@ -102,6 +103,7 @@ ul.menu-bar li a.active {
 
 .spotify-jumbotron{
 	background-color: #1ED760;
+	border:1px solid #0ea744;
 }
 
 .artist-input{
@@ -111,6 +113,7 @@ ul.menu-bar li a.active {
 .spotify-well{
 	background-color: #222425;
 	color: #999;
+	border:1px solid black;
 }
 
 
