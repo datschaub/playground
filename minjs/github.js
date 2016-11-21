@@ -1,1 +1,0 @@
-"use strict";$(document).ready(function(){$("#getCommits").click(function(){$.ajax({type:"GET",dataType:"json",url:"https://api.github.com/repos/datschaub/playground/events",success:function(o){$.each(o,function(t){console.log(o[t].payload.commits)})},error:function(o){console.log("Exception: "+o)}})})});
