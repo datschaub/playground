@@ -129,6 +129,7 @@ ul.menu-bar li a.active {
 	text-overflow: ellipsis;
 	font-family: 'Scope One';
 	overflow: hidden;
+	color: white;
 }
 
 .artist-puff-image{
@@ -160,6 +161,7 @@ ul.menu-bar li a.active {
 
 .artist-puff-popularity-header{
 	padding-bottom: 5px;
+	color: white;
 }
 
 .artist-puff-genres{
@@ -175,12 +177,21 @@ ul.menu-bar li a.active {
 .artist-puff-genres-header{
 	font-family: 'Scope One';
 	font-size: 18px;
+	color: white;
 }
 
 .artist-puff-genres ul{
 	list-style-type: none;
 	padding: 0;
 	font-size: 14px;
+}
+
+/****** API *******/
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
 }
 
 /* OVERWRITE BOOTSTRAP */
