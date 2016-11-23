@@ -7,7 +7,8 @@ window.onload = function () {
 		data:
 		{
 			title: 'RESTful :)',
-			dataInput: ''
+			dataInput: '',
+			people: []
 		},
 
 		methods:
@@ -17,7 +18,17 @@ window.onload = function () {
 			},
 
 			getItem: function(){
+				
+				this.$http.get('jsonDb.json').then((response) => {
 
+					console.log(response);
+					return response;
+
+				}, (response) => {
+
+					console.log("Exception: ", response)
+
+				});
 			}
 		}
 	})

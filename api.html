@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 	<!--Animate.css-->
-	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/animate.css">
 
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -74,6 +74,9 @@
 		    			<input v-model="dataInput" id="email" type="text" class="form-control" name="email" placeholder="Person">
 		  			</div>
 		  			<p>
+		  			<button class="btn btn-success" v-on:click="getItem()">Show items</button>
+		  			</p>
+		  			<p>
 		  				<transition name="fade">
 		  					<button v-show="dataInput" class="btn btn-primary animated">Add item</button>
 		  				</transition>
@@ -86,7 +89,8 @@
 						<th>Options</th>
 					</thead>
 					<tr>
-
+					<td v-for="person in people">
+					</td>
 					</tr>
 
 				</table>
@@ -99,8 +103,6 @@
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
 
