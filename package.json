@@ -14,13 +14,16 @@
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.18.0",
+    "browserify": "^13.1.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
+    "gulp-browserify": "^0.5.1",
     "gulp-install": "^0.6.0",
     "gulp-uglify": "^2.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify js/api.js -o bundle.js"
   },
   "repository": {
     "type": "git",
